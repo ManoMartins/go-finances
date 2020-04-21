@@ -38,7 +38,6 @@ const Dashboard: React.FC = () => {
       // TODO
       const response = await api.get('/transactions');
       const transaction = response.data;
-      console.log(transaction.transactions);
 
       setTransactions(transaction.transactions);
       setBalance(transaction.balance);
@@ -96,7 +95,7 @@ const Dashboard: React.FC = () => {
                 <tr key={transaction.id}>
                   <td className="title">{transaction.title}</td>
                   <td className={transaction.type}>
-                    {transaction.type === 'outcome' ? '-' : ''}
+                    {transaction.type === 'outcome' ? '- ' : ''}
                     {formatValue(transaction.value)}
                   </td>
                   <td>{transaction.category.title}</td>
